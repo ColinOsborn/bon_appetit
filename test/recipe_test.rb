@@ -1,4 +1,4 @@
-require './lib/recipe'
+require '../lib/recipe'
 require 'minitest/autorun'
 require 'minitest/pride'
 require 'pry'
@@ -21,5 +21,11 @@ class RecipeTest < Minitest::Test
     r = Recipe.new("Cheese Pizza")
     r.add_ingredient("Flour", 500)
     assert_equal 500, r.amount_required("Flour")
+  end
+
+  def test_it_has_fuckery_involved
+    r = Recipe.new("Cheese Pizza")
+    r.add_ingredient("Pepperoni", 15) # 500 "UNIVERSAL UNITS"
+    assert_equal ["Pepperoni"], r.ingredients
   end
 end
