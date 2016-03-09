@@ -17,3 +17,8 @@ class Recipe
     @ingredients[ingredient_name]
   end
 end
+
+
+# adding in some comments so that I know what to look for
+#  go practice some methods, read more from the books!
+# practice, but have fun!
