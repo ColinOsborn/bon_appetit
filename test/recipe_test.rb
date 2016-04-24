@@ -22,4 +22,29 @@ class RecipeTest < Minitest::Test
     r.add_ingredient("Flour", 500)
     assert_equal 500, r.amount_required("Flour")
   end
+
+  def test_it_returns_na_up_if_ingredient_does_not_exist
+    r = Recipe.new("Chocolate Milk")
+    assert_raises KeyError do
+      r.amount_required("Cheese")
+    end
+  end
+
+  def test_we_can_have_description
+    r = Recipe.new("Grilled Cheese", "How to make your favorite snack!")
+    assert_equal "How to make your favorite snack!", r.description
+  end
+
+  def test_we_can_set_the_description_on_an_existing_recipe
+    r = Recipe.new("Grilled Cheese")
+    r.description = "How to make your favorite snack!"
+    assert_equal "How to make your favorite snack!", r.description
+  end
+
+  def test_we_can_see_the_description_changes
+    r = Recipe.new("Grilled Cheese", "Heres's how to cook your favorite meal")
+    assert_equal "Heres's how to cook your favorite meal", r.description
+    r.description = "How to make your favorite snack!"
+    assert_equal "How to make your favorite snack!", r.description
+  end
 end
