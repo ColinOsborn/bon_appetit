@@ -41,10 +41,5 @@ class RecipeTest < Minitest::Test
     assert_equal "How to make your favorite snack!", r.description
   end
 
-  def test_we_can_see_the_description_changes
-    r = Recipe.new("Grilled Cheese", "Heres's how to cook your favorite meal")
-    assert_equal "Heres's how to cook your favorite meal", r.description
-    r.description = "How to make your favorite snack!"
-    assert_equal "How to make your favorite snack!", r.description
-  end
+  
 end
